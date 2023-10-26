@@ -1,5 +1,3 @@
-### Pour exécuter le script sur terminal utilisez : python construction.py feuille1 feuille2 feuille3 ...
-
 from sha_256 import *
 class arbre_merkle:
     def __init__(self, gauche, droit):
@@ -31,13 +29,6 @@ def construction(liste):
         return parents[0]
     else:
         return construction(parents)
-
-if __name__ == "__main__":
-    import sys
-
-    feuilles = sys.argv[1:]
-    arbre = construction(feuilles)
-    print("Racine de Merkle:", arbre.hash_)
 
 
 ### ©Mehdi AMOR OUAHMED, Oct 2023
