@@ -2,13 +2,30 @@
 
 from construction import *
 from verification import *
-feuilles = ['Mehdi', 'Amor Ouahmed', 'etudiant', 'Data Science', 'AI', 'ENP', 'Ingénieur']
-arbre = construction(feuilles)
-print(f'Racine de Merkle des feuilles : {feuilles}:\n', arbre.hash_)
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <list_of_leaves>")
+        sys.exit(1)
+
+    feuilles = sys.argv[1:]
+    arbre = construction(feuilles)
+    print("Racine de Merkle:", arbre.hash_)
+
+    while True:
+        element = input("Enter an element to check (or 'exit' to quit): ")
         
-print(check(arbre, 'Mehdi'))
-print(check(arbre, 'Meh'))
-print(check(arbre, 'mehdi'))
+        if element == 'exit':
+            break
+
+        resultat = check(arbre, element)
+        if resultat == False:
+            print(resultat, f". L'élément : '{element}' ne fait pas partie des feuilles de cet arbre")
+        else:
+            print(resultat[0], f". L'élément : '{element}' fait partie des feuilles de cet arbre")
+            print("Il est présent dans ces hashes:", resultat[1])
 
 
 ### ©Mehdi AMOR OUAHMED, Oct 2023
