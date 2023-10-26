@@ -1,4 +1,4 @@
-### Un essai de mes fonctions
+### To use it try python main.py node1 node2 node3 ...
 
 from construction import *
 from verification import *
