@@ -1,5 +1,3 @@
-### Pour exécuter le script sur terminal utilisez : python verification.py element
-
 from sha_256 import *
 from construction import *
 def verification(arbre, element):
@@ -22,16 +20,5 @@ def check(arbre, element):
         return resultat, hashes
     else:
         return resultat
-
-if __name__ == "__main__":
-    import sys
-    element = sys.argv[1]
-    arbre = construction(['Mehdi', 'Amor Ouahmed', 'etudiant', 'Data Science', 'AI', 'ENP', 'Ingénieur'])
-    resultat = check(arbre, element)
-    if resultat == False:
-        print(resultat, f". L'élément : '{element}' ne fait pas partie des feuilles de cet arbre")
-    else:
-        print(resultat[0], f". L'élément : '{element}' fait partie des feuilles de cet arbre")
-        print("Il est présent dans ces hashes:", resultat[1])
         
 ### ©Mehdi AMOR OUAHMED, Oct 2023
